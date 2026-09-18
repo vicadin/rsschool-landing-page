@@ -1,0 +1,32 @@
+:root {
+  --background-body: #e1d4c9;
+  --background-container: #665f55;
+  --background-backdrop: rgba(64, 63, 61, 0.8);
+  --text-dark: #403f3d;
+  --text-light: #e1d4c9;
+  --text-accent: #b0907a;
+  --border-light: #c1b6ad;
+  --border-dark: #665f55;
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 600;
+  font-style: normal;
+  src: url("assets/fonts/Inter-SemiBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  src: url("assets/fonts/Inter-Regular.ttf") format("truetype");
+}
+
+html {
+  padding: 20px 40px 40px;
+  background: var(--background-body);
+  max-width: 1440px;
+  margin: 0 auto;
+  scroll-behavior: smooth;
+}
