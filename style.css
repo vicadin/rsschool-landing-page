@@ -29,4 +29,66 @@ html {
   max-width: 1440px;
   margin: 0 auto;
   scroll-behavior: smooth;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  line-height: 0;
+}
+
+.nav {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  gap: 40px;
+}
+
+.nav__item a,
+.menu a {
+  color: var(--text-dark);
+  text-decoration: none;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 150%;
+  position: relative;
+}
+
+.nav__item a:after,
+.menu a:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  width: 0;
+  height: 2px;
+  background-color: var(--text-dark);
+  content: "";
+  transition: width 0.5s ease-out;
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2px;
+}
+
+.menu img {
+  margin-left: 8px;
+}
+
+.menu_active a:after {
+  width: 100%;
+}
+
+.menu_active a {
+  cursor: default;
 }
