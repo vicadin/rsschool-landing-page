@@ -390,3 +390,52 @@ html {
 .filter .btn-icon-dark {
   display: none;
 }
+
+.app {
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  gap: 6.944vw;
+}
+
+.app .heading-2 {
+  margin-bottom: 40px;
+  max-width: 625px;
+}
+
+.app img {
+  width: 43.75vw;
+  max-width: calc(50% - 20px);
+}
+
+.app > div {
+  max-width: calc(50% - 20px);
+}
+
+.app__buttons {
+  display: flex;
+  margin-top: 40px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.app__buttons .btn-icon-dark svg {
+  fill: var(--text-dark);
+  transition: fill 0.5s;
+  stroke: transparent;
+}
+
+.app__button {
+  display: flex;
+  gap: 8px;
+  padding: 11px 20px;
+  text-align: left;
+  color: var(--text-dark);
+  width: 200px;
+  box-sizing: border-box;
+  justify-content: flex-start;
+}
+
+.app__button .text-caption {
+  margin-bottom: 2px;
+}
