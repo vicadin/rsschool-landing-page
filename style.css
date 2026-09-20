@@ -23,6 +23,13 @@
   src: url("assets/fonts/Inter-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: Inter;
+  font-weight: 400;
+  font-style: italic;
+  src: url("assets/fonts/Inter-Italic.ttf") format("truetype");
+}
+
 html {
   padding: 20px 40px 40px;
   background: var(--background-body);
@@ -73,6 +80,10 @@ html {
   background-color: var(--text-dark);
   content: "";
   transition: width 0.5s ease-out;
+}
+
+.button-burger {
+  display: none;
 }
 
 .menu {
@@ -522,4 +533,191 @@ html {
   background-color: var(--text-light);
   content: "";
   transition: width 0.5s ease-out;
+}
+
+.filter .heading-2 {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.filter-menu__item {
+  display: flex;
+  gap: 8px;
+  border-radius: 100px;
+  border: 1px solid var(--border-light, #c1b6ad);
+  padding: 7px 16px 7px 7px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-dark, #403f3d);
+  cursor: pointer;
+}
+
+.filter-menu__img {
+  display: flex;
+  align-items: center;
+  border-radius: 100px;
+  background: var(--border-light, #c1b6ad);
+  padding: 7px;
+  justify-content: center;
+}
+
+.filter-menu__item_active {
+  background: var(--background-container, #665f55);
+  border: 1px solid var(--background-container, #665f55);
+  color: var(--text-light, #e1d4c9);
+}
+
+.filter-menu__item_active .filter-menu__img {
+  background: var(--background-body, #e1d4c9);
+  transition: background-color 0.5s ease;
+}
+
+.filter-menu {
+  display: flex;
+  margin: 40px auto;
+  gap: 16px;
+  width: fit-content;
+}
+
+.card-list {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  border-radius: 40px;
+  border: 1px solid var(--border-light, #c1b6ad);
+  color: var(--text-dark, #403f3d);
+  width: 310px;
+  height: 506px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: inherit;
+  justify-content: space-between;
+  height: 196px;
+  box-sizing: border-box;
+}
+
+.card-content__desc {
+  margin-top: 12px;
+}
+.menu-nav,
+.menu-mob {
+  display: none;
+}
+.menu-burger {
+  display: none;
+}
+.overlay {
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transition: all 5s ease-in-out;
+  display: none;
+}
+.overlay.show {
+  background: rgba(64, 63, 61, 0.8);
+  opacity: 1;
+  display: block;
+}
+.modal {
+  border-radius: 40px;
+  background: var(--background-body, #e1d4c9);
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  padding: 16px;
+  display: flex;
+  gap: 20px;
+  color: var(--text-dark, #403f3d);
+  width: 55.556vw;
+  height: fit-content;
+  box-sizing: border-box;
+}
+.modal__desc {
+  margin: 12px 0 20px;
+}
+.tab {
+  display: flex;
+  border-radius: 100px;
+  border: 1px solid var(--border-light, #c1b6ad);
+  padding: 8px 16px 8px 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  width: fit-content;
+  box-sizing: border-box;
+  line-height: 0;
+  transition: 0.5s;
+}
+.tab-active {
+  background: var(--background-container, #665f55);
+  border: 1px solid var(--background-container, #665f55);
+  color: var(--text-light, #e1d4c9);
+}
+.tab-active .tab__size {
+  background: var(--background-body, #e1d4c9);
+  color: var(--text-dark, #403f3d);
+}
+.tab__size {
+  border-radius: 100px;
+  background: var(--border-light, #c1b6ad);
+  text-transform: uppercase;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.tab__size p,
+.tab p {
+  margin: 0;
+}
+.tab__img {
+  border-radius: 40px;
+  width: 21.528vw;
+}
+.tab__row {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 20px 0;
+  flex-wrap: wrap;
+}
+
+.modal__price {
+  display: flex;
+  justify-content: space-between;
+}
+.modal__price p {
+  margin: 0;
+}
+.modal__info {
+  border-top: 1px solid var(--border-light, #c1b6ad);
+  padding: 12px 0;
+  display: flex;
+  gap: 8px;
+  margin: 20px 0;
+}
+.modal__btn {
+  width: 100%;
+  padding: 8px 0;
+  color: var(--text-dark, #403f3d);
+}
+.hidden-scroll {
+  overflow: hidden;
 }
