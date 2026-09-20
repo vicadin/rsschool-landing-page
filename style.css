@@ -9,6 +9,21 @@
   --border-dark: #665f55;
 }
 
+[data-theme="dark"] {
+  --background-body: #292826;
+  --background-container: #403f3d;
+  --background-backdrop: rgba(41, 40, 38, 0.8);
+  --text-dark: #e1d4c9;
+  --text-light: #e1d4c9;
+  --text-accent: #b0907a;
+  --border-light: #665f55;
+  --border-dark: #c1b6ad;
+}
+
+html, body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 @font-face {
   font-family: Inter;
   font-weight: 600;
@@ -46,8 +61,68 @@ html {
   margin-bottom: 20px;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
 .logo {
   line-height: 0;
+}
+
+.theme-switcher {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 88px;
+  height: 44px;
+  padding: 3px;
+  border-radius: 100px;
+  border: 1px solid var(--border-light);
+  background-color: transparent;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.theme-switcher__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  padding: 0 6px;
+  color: var(--text-dark);
+  z-index: 2;
+  transition: color 0.3s ease;
+}
+
+.theme-switcher::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--text-accent);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  z-index: 1;
+}
+
+[data-theme="dark"] .theme-switcher::before {
+  transform: translateX(44px);
+}
+
+[data-theme="dark"] .theme-switcher__icon_moon {
+  color: var(--text-light);
+}
+
+[data-theme="dark"] .theme-switcher__icon_sun {
+  color: var(--text-dark);
 }
 
 .nav {
@@ -146,6 +221,7 @@ html {
   font-weight: 400;
   line-height: 150%;
   margin: 0;
+  color: var(--text-dark);
 }
 
 .text-caption {
