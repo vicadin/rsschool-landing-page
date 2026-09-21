@@ -179,6 +179,10 @@ html {
   cursor: default;
 }
 
+[data-theme="dark"] .menu-icon {
+  filter: invert(1);
+} 
+
 .hero {
   position: relative;
 }
@@ -263,6 +267,10 @@ html {
   visibility: hidden;
   transition: 0.5s;
 }
+
+[data-theme="dark"] .btn-primary-icon {
+  filter: invert(1);
+}  
 
 .btn-primary span {
   transform: translateX(0px);
