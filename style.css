@@ -420,9 +420,9 @@ html {
   }
 }
 
-/* .dots__item_active {
+.dots__item_active {
   background: var(--border-dark, #665f55);
-} */
+}
 
 .favorite .heading-2 {
   text-align: center;
