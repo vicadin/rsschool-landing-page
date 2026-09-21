@@ -20,8 +20,11 @@
   --border-dark: #c1b6ad;
 }
 
-html, body {
-  transition: background-color 0.3s ease, color 0.3s ease;
+html,
+body {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 @font-face {
@@ -109,7 +112,9 @@ html {
   height: 36px;
   border-radius: 50%;
   background-color: var(--text-accent);
-  transition: transform 0.3s ease, background-color 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
   z-index: 1;
 }
 
@@ -181,7 +186,7 @@ html {
 
 [data-theme="dark"] .menu-icon {
   filter: invert(1);
-} 
+}
 
 .hero {
   position: relative;
@@ -204,7 +209,9 @@ html {
   font-weight: 600;
   line-height: 105%;
   color: var(--text-light);
-  font-feature-settings: "clig" off, "liga" off;
+  font-feature-settings:
+    "clig" off,
+    "liga" off;
   margin: 0;
 }
 
@@ -270,7 +277,7 @@ html {
 
 [data-theme="dark"] .btn-primary-icon {
   filter: invert(1);
-}  
+}
 
 .btn-primary span {
   transform: translateX(0px);
@@ -894,7 +901,9 @@ html {
   .menu-nav .nav__item a {
     color: var(--text-dark, #403f3d);
     text-align: center;
-    font-feature-settings: "clig" off, "liga" off;
+    font-feature-settings:
+      "clig" off,
+      "liga" off;
     font-size: 32px;
     font-weight: 600;
     line-height: 125%;
