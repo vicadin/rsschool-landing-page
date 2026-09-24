@@ -536,6 +536,7 @@ html {
   width: 200px;
   box-sizing: border-box;
   justify-content: flex-start;
+  text-decoration: none;
 }
 
 .app__button .text-caption {
