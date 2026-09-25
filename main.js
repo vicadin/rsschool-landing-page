@@ -52,3 +52,109 @@ document.addEventListener("keydown", (event) => {
     closeMenu();
   }
 });
+
+/* slider */
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.querySelector(".slide");
+  const slides = document.querySelectorAll(".slide__item");
+  const fillDots = document.querySelectorAll(".dots__item_fill");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const intervalTime = 5000;
+  let interval;
+  let isPaused = false;
+  let currentIndex = 0;
+  const slideWidth = slides[0].clientWidth;
+
+  function goToSlide(index) {
+    slider.style.transform = `translateX(-${slideWidth * index}px)`;
+    currentIndex = index;
+    updateIndicators();
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    goToSlide(currentIndex);
+    updateIndicators();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    goToSlide(currentIndex);
+    updateIndicators();
+  }
+
+  function updateIndicators() {
+    fillDots.forEach((fill, index) => {
+      if (index === currentIndex) {
+        fill.classList.add("fill-animate");
+      } else {
+        fill.classList.remove("fill-animate");
+      }
+    });
+  }
+
+  function startSlider() {
+    if (!isPaused) {
+      interval = setInterval(nextSlide, intervalTime);
+    }
+  }
+
+  function pauseSlider() {
+    clearInterval(interval);
+    updateIndicators();
+  }
+
+  slider.addEventListener("mouseenter", () => {
+    isPaused = true;
+    pauseSlider();
+    fillDots.forEach((fill) => {
+      fill.style.animationPlayState = "paused";
+    });
+  });
+
+  slider.addEventListener("mouseleave", () => {
+    isPaused = false;
+    startSlider();
+    fillDots.forEach((fill) => {
+      fill.style.animationPlayState = "running";
+    });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    prevSlide();
+    pauseSlider();
+  });
+
+  nextBtn.addEventListener("click", () => {
+    nextSlide();
+    pauseSlider();
+  });
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  slider.addEventListener("touchstart", (e) => {
+    touchStartX = e.touches[0].clientX;
+  });
+
+  slider.addEventListener("touchend", (e) => {
+    touchEndX = e.changedTouches[0].clientX;
+    handleSwipe();
+  });
+
+  function handleSwipe() {
+    const swipeThreshold = 100;
+    const swipeLength = touchEndX - touchStartX;
+
+    if (swipeLength > swipeThreshold) {
+      prevSlide();
+      pauseSlider();
+    } else if (swipeLength < -swipeThreshold) {
+      nextSlide();
+      pauseSlider();
+    }
+  }
+
+  updateIndicators();
+  startSlider();
+});
