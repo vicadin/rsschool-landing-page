@@ -709,6 +709,11 @@ html {
 .menu-mob {
   display: none;
 }
+
+[data-theme="dark"] .menu-mob img {
+  filter: invert(1);
+}
+
 .menu-burger {
   display: none;
 }
