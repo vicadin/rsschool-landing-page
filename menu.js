@@ -104,7 +104,6 @@ window.addEventListener("resize", function () {
 });
 
 /* modal */
-
 function showModal(productData) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
@@ -166,7 +165,6 @@ function showModal(productData) {
       </defs>
       </svg>
       <p class="text-caption">The cost is not final. Download our mobile app to see the final price and place your order. Earn loyalty points and enjoy your favorite coffee with up to 20% discount.</p>
-  
       </div>
       <button class="btn-icon-dark modal__btn text-button">Close</button>
     </div>
@@ -228,18 +226,27 @@ function showModal(productData) {
   updatePrice();
 
   document.body.appendChild(modal);
-  document.getElementById("overlay").classList.add("show");
-  document.querySelector("body").classList.add("hidden-scroll");
+  const overlay = document.getElementById("overlay");
+  overlay.classList.add("show");
+  document.body.classList.add("hidden-scroll");
+
+  function closeModal() {
+    modal.remove();
+    overlay.classList.remove("show");
+    document.body.classList.remove("hidden-scroll");
+
+    document.removeEventListener("keydown", handleEscapeKey);
+    overlay.removeEventListener("click", closeModal);
+  }
+
+  function handleEscapeKey(event) {
+    if (event.key === "Escape") {
+      closeModal();
+    }
+  }
 
   const closeModalButton = modal.querySelector(".modal__btn");
-  closeModalButton.addEventListener("click", () => {
-    modal.remove();
-    document.getElementById("overlay").classList.remove("show");
-    document.querySelector("body").classList.remove("hidden-scroll");
-  });
-  document.getElementById("overlay").addEventListener("click", () => {
-    modal.remove();
-    document.getElementById("overlay").classList.remove("show");
-    document.querySelector("body").classList.remove("hidden-scroll");
-  });
+  closeModalButton.addEventListener("click", closeModal);
+  overlay.addEventListener("click", closeModal);
+  document.addEventListener("keydown", handleEscapeKey);
 }
