@@ -158,3 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateIndicators();
   startSlider();
 });
+
+window.addEventListener("resize", () => {
+  goToSlide(currentIndex);
+});
