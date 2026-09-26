@@ -408,7 +408,7 @@ html {
 }
 
 .fill-animate {
-  animation: fillAnimation 5.5s linear;
+  animation: fillAnimation 4s linear;
 }
 
 @keyframes fillAnimation {
