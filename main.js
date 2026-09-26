@@ -60,14 +60,15 @@ document.addEventListener("DOMContentLoaded", function () {
   const fillDots = document.querySelectorAll(".dots__item_fill");
   const prevBtn = document.getElementById("prevBtn");
   const nextBtn = document.getElementById("nextBtn");
-  const intervalTime = 5000;
+  const intervalTime = 4000;
   let interval;
   let isPaused = false;
   let currentIndex = 0;
   const slideWidth = slides[0].clientWidth;
 
   function goToSlide(index) {
-    slider.style.transform = `translateX(-${slideWidth * index}px)`;
+    const currentSlideWidth = slides[0].clientWidth;
+    slider.style.transform = `translateX(-${currentSlideWidth * index}px)`;
     currentIndex = index;
     updateIndicators();
   }
@@ -157,8 +158,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateIndicators();
   startSlider();
-});
 
-window.addEventListener("resize", () => {
-  goToSlide(currentIndex);
+  window.addEventListener("resize", () => {
+    goToSlide(currentIndex);
+  });
 });
