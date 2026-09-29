@@ -996,6 +996,12 @@ html {
   }
 }
 
+@media (min-width: 769px) and (max-width: 777px) {
+  .hero__content {
+    padding: 100px 60px;
+  }
+}
+
 @media only screen and (min-device-width: 320px) and (max-device-width: 700px) {
   html {
     padding: 20px 16px 40px;
